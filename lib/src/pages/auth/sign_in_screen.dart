@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_challenger/src/common_widgets/custom_text_button.dart';
 import 'package:flutter_challenger/src/common_widgets/custom_text_field.dart';
 import 'package:flutter_challenger/src/pages/auth/home/home_tab.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({
@@ -101,32 +101,14 @@ class SignInScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 20),
-                child: TextButton(
-                  onPressed: () => openUrl(),
-                  child: const Text(
-                    "Política de Privacidade",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 20),
+                child: CustomTextButton(),
               ),
             ],
           ),
         ),
       ),
     );
-  }
-
-  void openUrl() async {
-    const url = 'https://google.com.br/';
-    if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url));
-    } else {
-      throw 'Could not launch $url';
-    }
   }
 }
