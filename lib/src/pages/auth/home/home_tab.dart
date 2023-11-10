@@ -21,7 +21,16 @@ class HomeTab extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: Padding(
             padding: EdgeInsets.only(top: 50.0),
-            child: MyCard(),
+            child: Column(
+              children: [
+                MyCard(),
+                SizedBox(height: 40.0), 
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 50.0),
+                  child: Center(child: MyTextField()),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -30,13 +39,13 @@ class HomeTab extends StatelessWidget {
 }
 
 class MyCard extends StatelessWidget {
-  const MyCard({super.key});
+  const MyCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400.0,
-      margin: const EdgeInsets.symmetric(horizontal: 40.0),
+      height: 350.0,
+      margin: const EdgeInsets.symmetric(horizontal: 50.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: const BorderRadius.only(
@@ -98,6 +107,42 @@ class MyCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class MyTextField extends StatelessWidget {
+  const MyTextField({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: TextField(
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+        ),
+        decoration: InputDecoration(
+          labelText: 'Digite o texto',
+          labelStyle: const TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+          alignLabelWithHint: true,
+          isDense: true,
+          contentPadding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0), 
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(5),
+          ),
+        ),
+        textAlignVertical: TextAlignVertical.center,
+        textAlign: TextAlign.center,
       ),
     );
   }
