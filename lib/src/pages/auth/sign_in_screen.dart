@@ -26,17 +26,16 @@ class SignInScreen extends StatelessWidget {
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center, // Ajustado para começar do centro
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Envolver os elementos superiores em Expanded
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start, // Ajustado para começar da esquerda
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Label Usuário
                     const Padding(
-                      padding: EdgeInsets.only(bottom: 5, left: 5), // Adicionado espaçamento e ajuste para a direita
+                      padding: EdgeInsets.only(bottom: 5, left: 5),
                       child: Text(
                         'Usuário',
                         style: TextStyle(
@@ -52,8 +51,7 @@ class SignInScreen extends StatelessWidget {
 
                     // Label Senha
                     const Padding(
-                      padding: EdgeInsets.only(
-                          top: 10, bottom: 5, left: 5), // Adicionado espaçamento e ajuste para a direita
+                      padding: EdgeInsets.only(top: 10, bottom: 5, left: 5),
                       child: Text(
                         'Senha',
                         style: TextStyle(
@@ -68,10 +66,8 @@ class SignInScreen extends StatelessWidget {
                       isSecret: true,
                     ),
 
-                    // Espaçamento entre TextFields e Botão
                     const SizedBox(height: 20),
 
-                    // Botão de entrar centralizado
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -105,11 +101,8 @@ class SignInScreen extends StatelessWidget {
                   ],
                 ),
               ),
-
-              // Padding apenas para a Label "Política de Privacidade"
               Padding(
-                padding: const EdgeInsets.only(
-                    bottom: 20), // Adicionado espaçamento abaixo da Label "Política de Privacidade"
+                padding: const EdgeInsets.only(bottom: 20),
                 child: TextButton(
                   onPressed: () => openUrl(),
                   child: const Text(
