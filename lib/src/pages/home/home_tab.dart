@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_challenger/src/common_widgets/custom_text_button.dart';
-import 'package:flutter_challenger/src/common_widgets/my_text_field.dart';
-import 'package:flutter_challenger/src/pages/auth/home/components/card.dart';
+import 'package:flutter_challenger/src/pages/auth/components/custom_text_button.dart';
+import 'package:flutter_challenger/src/pages/home/components/my_text_field.dart';
+import 'package:flutter_challenger/src/pages/home/components/card.dart';
 
 class HomeTab extends StatelessWidget {
   const HomeTab({Key? key}) : super(key: key);
@@ -45,3 +45,4 @@ class HomeTab extends StatelessWidget {
     );
   }
 }
+

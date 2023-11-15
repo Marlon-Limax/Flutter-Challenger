@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_challenger/src/pages/auth/sign_in_screen.dart';
+import 'package:flutter_challenger/routes/app_route.dart';
+import 'package:flutter_challenger/src/pages/auth/login_page.dart';
+import 'package:flutter_challenger/src/pages/home/home_tab.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,13 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white.withAlpha(190),
       ),
       debugShowCheckedModeBanner: false,
-      home: const SignInScreen(),
+      home: const LoginPage(),
+
+      routes: {
+        AppRoutes.login: (ctx) => const LoginPage(),
+        AppRoutes.home: (ctx) => const HomeTab(),
+      },
+      initialRoute: AppRoutes.login,
     );
   }
 }

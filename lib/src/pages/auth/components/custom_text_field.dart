@@ -7,7 +7,8 @@ class CustomTextField extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
   final String? initialValue;
   final bool readOnly;
-  final Color backgroundColor; // Adicione esta propriedade
+  final Color backgroundColor;
+  final ValueChanged<String> onChanged;
 
   const CustomTextField({
     Key? key,
@@ -16,7 +17,8 @@ class CustomTextField extends StatefulWidget {
     this.inputFormatters,
     this.initialValue,
     this.readOnly = false,
-    this.backgroundColor = Colors.white, // Cor padrão para branco
+    this.backgroundColor = Colors.white,
+    required this.onChanged,
   }) : super(key: key);
 
   @override
@@ -29,7 +31,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   void initState() {
     super.initState();
-
     isObscure = widget.isSecret;
   }
 
@@ -39,7 +40,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       padding: const EdgeInsets.only(bottom: 15),
       child: Container(
         decoration: BoxDecoration(
-          color: widget.backgroundColor, // Defina a cor de fundo aqui
+          color: widget.backgroundColor,
           borderRadius: BorderRadius.circular(5),
         ),
         child: TextFormField(
@@ -48,7 +49,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           inputFormatters: widget.inputFormatters,
           obscureText: isObscure,
           decoration: InputDecoration(
-            prefixIcon: Icon(widget.icon, color: Colors.black), // Ícone preto
+            prefixIcon: Icon(widget.icon, color: Colors.black),
             suffixIcon: widget.isSecret
                 ? IconButton(
                     onPressed: () {
@@ -57,13 +58,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       });
                     },
                     icon: Icon(isObscure ? Icons.visibility : Icons.visibility_off),
-                    color: Colors.black, // Ícone preto
+                    color: Colors.black,
                   )
                 : null,
             isDense: true,
-            contentPadding: EdgeInsets.zero, // Remova o preenchimento interno
+            contentPadding: EdgeInsets.zero,
             border: OutlineInputBorder(
-              borderSide: BorderSide.none, // Remova a borda
+              borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(10),
             ),
           ),
@@ -72,3 +73,4 @@ class _CustomTextFieldState extends State<CustomTextField> {
     );
   }
 }
+
